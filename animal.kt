@@ -2,13 +2,18 @@
 //Purpose: Learning & Coding with the 4 Pillars of OOP
 //Author: Elisa Aldridge
 
-open class Animal(val name: String) {       //val is encapsulated - open allows class Cat to extend class Animal
-    open fun makeSound(): String {
+interface IAnimal{                          // Abstraction - defined relationship/ no implementation
+    fun makeSound(): String
+    fun legCount(): Int
+}
+
+open class Animal(val name: String) : IAnimal {       //val is encapsulated, val is immutable - open allows class Cat to extend class Animal
+    override fun makeSound(): String {
         return "growl"
     }
 
-    fun legCount(): Int {
-        var x = 4                           //var is not encapsulated
+    override fun legCount(): Int {
+        var x = 4                           //var is not encapsulated, var is mutable
         return x
     }
 
